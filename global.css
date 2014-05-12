@@ -1,0 +1,21 @@
+#example{
+    cursor:pointer;
+    float:left;
+}
+
+#pointer{
+    cursor:pointer;
+    position:relative;
+    width:10px;
+    height:10px;
+    border:solid 2px #fff;
+    border-radius:10px;
+    background:#000;
+}
+
+#color_result{
+    width:400px;
+    height:400px;
+    background:#000;
+    float:left;
+}

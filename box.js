@@ -5,21 +5,16 @@ $(document).ready(function(){
   var p; // holds RGB value from clicked point on canvas
 
   function updateLEDs(){
-    $.ajax({
-      url: "http://192.168.1.73/arduino/analog/3/" + p[0],
-      type: 'POST'
-    });
-    $.ajax({
-      url: "http://192.168.1.73/arduino/analog/5/" + p[1],
-      type: 'POST'
-    });
-    $.ajax({
-      url: "http://192.168.1.73/arduino/analog/6/" + p[2],
-      type: 'POST'
-    });
+    ping("http://192.168.0.12/arduino/analog/9/" + p[0]);
+    ping("http://192.168.0.12/arduino/analog/10/" + p[1]);
+    ping("http://192.168.0.12/arduino/analog/11/" + p[2]);
   }
 
-  //Will need to smooth this out when other tests are add
+  function ping(url) {
+    var img = new Image();
+    img.src = url;
+  }
+
   var pointer = document.getElementById("pointer");
   var color_result = document.getElementById("color_result");
   var clicked = new Boolean(false);
@@ -89,9 +84,8 @@ $(document).ready(function(){
       p = c.getImageData(x, y, 1, 1).data;
       hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
       color_result.style.background = hex;
-      pointer.style.left = (x - 9) + "px";
-      pointer.style.top = (y - 414) +  "px";
-      updateLEDs();
+      pointer.style.left = (x - 10) + "px";
+      pointer.style.top = (y - 10) +  "px";
     }
 
     $('#example').mousemove(function (e) {
@@ -116,6 +110,7 @@ $(document).ready(function(){
 
     $('#example').mouseup(function (e) {
       clicked = false;
+      updateLEDs();
     });
 
     $('#pointer').mousedown(function (e) {
@@ -124,6 +119,7 @@ $(document).ready(function(){
 
     $('#pointer').mouseup(function (e) {
       clicked = false;
+      updateLEDs();
     });
   }
 });

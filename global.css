@@ -4,13 +4,17 @@
 }
 
 #pointer{
-    cursor:pointer;
-    position:relative;
-    width:10px;
-    height:10px;
-    border:solid 2px #fff;
-    border-radius:10px;
-    background:#000;
+  cursor:pointer;
+  position:relative;
+  width:15px;
+  height:15px;
+  border: 2px solid #fff;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+  border-radius:10px;
+  background:rgba(0,0,0,0);
 }
 
 #color_result{

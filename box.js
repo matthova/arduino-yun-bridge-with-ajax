@@ -1,13 +1,12 @@
 $(document).ready(function(){
 
-  var toggle = 0;
   var hex = 0;
   var p; // holds RGB value from clicked point on canvas
 
   function updateLEDs(){
-    ping("http://192.168.0.12/arduino/analog/9/" + p[0]);
-    ping("http://192.168.0.12/arduino/analog/10/" + p[1]);
-    ping("http://192.168.0.12/arduino/analog/11/" + p[2]);
+    ping("http://192.168.1.32/arduino/analog/9/" + p[0]);
+    ping("http://192.168.1.32/arduino/analog/10/" + p[1]);
+    ping("http://192.168.1.32/arduino/analog/11/" + p[2]);
   }
 
   function ping(url) {

@@ -7,11 +7,11 @@ $(document).ready(function(){
   }
 
   function ping(url) {
-    // var img = new Image();
-    // img.src = url;
-    $.ajax({
-      url:url
-    });
+    var img = new Image();
+    img.src = url;
+    // $.ajax({
+    //   url:url
+    // });
   }
 
   var pointer = document.getElementById("pointer");

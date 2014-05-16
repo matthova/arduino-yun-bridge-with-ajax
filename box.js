@@ -122,6 +122,7 @@ $(document).ready(function(){
     $('#color_result').click(function(){
       updateLEDs();
       clicked = true;
+      alert("hey");
     });
   }
 });

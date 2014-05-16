@@ -3,7 +3,7 @@ $(document).ready(function(){
   var prehex = 0;
 
   function updateLEDs(){
-    ping("http://192.168.0.12/arduino/" + prehex);
+    ping("http://192.168.0.32/arduino/" + prehex);
   }
 
   function ping(url) {

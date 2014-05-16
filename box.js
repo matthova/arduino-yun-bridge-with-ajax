@@ -7,11 +7,11 @@ $(document).ready(function(){
   }
 
   function ping(url) {
-    var img = new Image();
-    img.src = url;
-    // $.ajax(){
-    //   url:url;
-    // }
+    // var img = new Image();
+    // img.src = url;
+    $.ajax({
+      url:url
+    });
   }
 
   var pointer = document.getElementById("pointer");
@@ -122,7 +122,6 @@ $(document).ready(function(){
     $('#color_result').click(function(){
       updateLEDs();
       clicked = true;
-      alert("hey");
     });
   }
 });

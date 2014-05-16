@@ -1,17 +1,17 @@
 $(document).ready(function(){
 
-  var hex = 0;
-  var p; // holds RGB value from clicked point on canvas
+  var prehex = 0;
 
   function updateLEDs(){
-    ping("http://192.168.1.32/arduino/analog/9/" + p[0]);
-    ping("http://192.168.1.32/arduino/analog/10/" + p[1]);
-    ping("http://192.168.1.32/arduino/analog/11/" + p[2]);
+    ping("http://192.168.0.12/arduino/" + prehex);
   }
 
   function ping(url) {
     var img = new Image();
     img.src = url;
+    // $.ajax(){
+    //   url:url;
+    // }
   }
 
   var pointer = document.getElementById("pointer");
@@ -80,8 +80,9 @@ $(document).ready(function(){
       var x = e.pageX - pos.x;
       var y = e.pageY - pos.y;
       var c = that.getContext('2d');
-      p = c.getImageData(x, y, 1, 1).data;
-      hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+      var p = c.getImageData(x, y, 1, 1).data;
+      prehex = ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+      var hex = "#" + prehex;
       color_result.style.background = hex;
       pointer.style.left = (x - 10) + "px";
       pointer.style.top = (y - 10) +  "px";
@@ -109,7 +110,6 @@ $(document).ready(function(){
 
     $('#example').mouseup(function (e) {
       clicked = false;
-      updateLEDs();
     });
 
     $('#pointer').mousedown(function (e) {
@@ -118,7 +118,11 @@ $(document).ready(function(){
 
     $('#pointer').mouseup(function (e) {
       clicked = false;
+    });
+
+    $('#color_result').click(function(){
       updateLEDs();
+      clicked = true;
     });
   }
 });

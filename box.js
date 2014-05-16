@@ -37,10 +37,9 @@ $(document).ready(function(){
     for (var i = 0; i < 360; i += 0.1) {
       var rad = i * (2 * Math.PI) / 360;
       var grad = context.createLinearGradient(CX, CY, CX + sx * Math.cos(rad), CY + sy * Math.sin(rad));
-      grad.addColorStop(0, 'hsla(0,100%,100%,1.0)'); //white
-      grad.addColorStop(.25, 'hsla(0,100%,100%,1.0)'); //white
-      grad.addColorStop(.5, 'hsla(0,100%,0%,1.0)'); //black
-      grad.addColorStop(.8, 'hsla(' + i + ',100%,50%,1.0)'); //the color
+      grad.addColorStop(0, 'hsla(0,0%,0%,1.0)'); //black
+      grad.addColorStop(.1, 'hsla(0,0%,0%,1.0)'); //black
+      grad.addColorStop(.7, 'hsla(' + i + ',100%,50%,1.0)'); //the color
       grad.addColorStop(.9, 'hsla(0,100%,100%,1.0)'); //white
       grad.addColorStop(1, 'hsla(0,100%,100%,1.0)'); //white
       context.strokeStyle = grad;

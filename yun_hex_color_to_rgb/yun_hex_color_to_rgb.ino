@@ -27,7 +27,6 @@ void setup() {
   // (no one from the external network could connect)
   server.listenOnLocalhost();
   server.begin();
-  Serial.begin(9600);
 }
 
 void loop() {
@@ -36,12 +35,6 @@ void loop() {
   red_cur = step_fade(red_cur, red_dest);
   green_cur = step_fade(green_cur, green_dest);
   blue_cur = step_fade(blue_cur, blue_dest);
-  Serial.print("Red: ");
-  Serial.print(red_cur, DEC);
-  Serial.print(", Green: ");
-  Serial.print(green_cur, DEC);
-  Serial.print(", Blue: ");
-  Serial.println(blue_cur, DEC);
   analogWrite(9,red_cur);
   analogWrite(10,green_cur);
   analogWrite(11,blue_cur);
